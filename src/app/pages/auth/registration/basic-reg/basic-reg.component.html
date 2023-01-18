@@ -5,66 +5,110 @@
       <div class="col-sm-12">
         <!-- Authentication card start -->
         <div class="login-card card-body auth-body">
-          <form class="md-float-material">
+          <form class="md-float-material" (ngSubmit)="onSubmit(register)" #register="ngForm">
             <div class="text-center">
               <img src="assets/images/auth/logo-dark.png" alt="Guru Able">
             </div>
             <div class="auth-box">
               <div class="row m-b-20">
                 <div class="col-md-12">
-                  <h3 class="text-center txt-primary">Sign up. It is fast and easy.</h3>
+                  <h3 class="text-center txt-primary">Inscrivez-vous. C'est simple et rapide.</h3>
                 </div>
               </div>
               <hr/>
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Choose Username">
-                <span class="md-line"></span>
-              </div>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Your Email Address">
-                <span class="md-line"></span>
-              </div>
-              <div class="input-group">
-                <input type="password" class="form-control" placeholder="Choose Password">
-                <span class="md-line"></span>
-              </div>
-              <div class="input-group">
-                <input type="password" class="form-control" placeholder="Confirm Password">
-                <span class="md-line"></span>
-              </div>
-              <div class="row m-t-25 text-left">
-                <div class="col-md-12">
-                  <div class="checkbox-fade fade-in-primary">
-                    <label>
-                      <input type="checkbox" value="">
-                      <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                      <span class="text-inverse">I read and accept <a href="javascript:;">Terms &amp; Conditions.</a></span>
-                    </label>
-                  </div>
+                <input  type="text" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (lastName.touched && lastName.errors?.required) || lastNameReq}" 
+                        placeholder="Nom" 
+                        name="lastName" 
+                        #lastName="ngModel"
+                        ngModel required />
+                <div  class="invalid-feedback"
+                      *ngIf="(lastName.touched && lastName.errors?.required) ||lastNameReq">
+                    Veuillez entrer votre nom.
                 </div>
-                <div class="col-md-12">
-                  <div class="checkbox-fade fade-in-primary">
-                    <label>
-                      <input type="checkbox" value="">
-                      <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                      <span class="text-inverse">Send me the <a href="javascript:;">Newsletter</a> weekly.</span>
-                    </label>
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input  type="text" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (firstName.touched && firstName.errors?.required) || firstNameReq}" 
+                        placeholder="Prénom(s)" 
+                        name="firstName" 
+                        #firstName="ngModel"
+                        ngModel required />
+                  <div  class="invalid-feedback"
+                        *ngIf="(firstName.touched && firstName.errors?.required) || firstNameReq">
+                    Veuillez entrer votre prénom.
                   </div>
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input  type="email" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (email.touched && email.errors?.pattern) || emailReq || emailTaken }" 
+                        placeholder="Adresse Email" 
+                        name="email" 
+                        #email="ngModel" 
+                        ngModel required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                <div  class="invalid-feedback"
+                      *ngIf="(email.touched && email.errors?.pattern) || emailReq">
+                  Veuillez entrer une adresse mail valide.
                 </div>
+                <div  class="invalid-feedback"
+                      *ngIf="emailTaken">
+                  Adresse email déjà utilisée.
+                </div>
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input  type="text" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (contact.touched && contact.errors?.required) || contactReq}"  
+                        placeholder="Contact" 
+                        name="contact" 
+                        #contact="ngModel"
+                        ngModel required />
+                        <div  class="invalid-feedback"
+                        *ngIf="(contact.touched && contact.errors?.required) || contactReq">
+                    Veuillez entrer votre contact.
+                  </div>
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input  type="password" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (password.touched && password.errors?.required) || passwordReq}" 
+                        placeholder="Mot de passe" 
+                        name="password" 
+                        #password="ngModel"
+                        ngModel required />
+                        <div  class="invalid-feedback"
+                        *ngIf="(password.touched && password.errors?.required) || passwordReq">
+                    Veuillez entrer un mot de passe valide.
+                  </div>
+                <span class="md-line"></span>
+              </div>
+              <div class="input-group">
+                <input  type="password" 
+                        [ngClass]="{'form-control': true, 'is-invalid': (confirmPassword.touched && confirmPassword.errors?.required) || passwordMatch }" 
+                        placeholder="Confirmer le mot de passe" 
+                        name="confirmPassword" 
+                        #confirmPassword="ngModel"
+                        ngModel required />
+                        <div  class="invalid-feedback"
+                        *ngIf="(confirmPassword.touched && confirmPassword.errors?.required) || this.passwordMatch">
+                    Les mots de passes ne correspondent pas.
+                  </div>
+                <span class="md-line"></span>
               </div>
               <div class="row m-t-30">
                 <div class="col-md-12">
-                  <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now.</button>
+                  <button *ngIf="!loading" type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">S'inscrire</button>
+                  <button *ngIf="loading" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" disabled >Veuillez patienter ...</button>
                 </div>
               </div>
               <hr/>
               <div class="row">
-                <div class="col-md-10">
-                  <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
-                  <p class="text-inverse text-left"><b>Your Autentification Team</b></p>
-                </div>
-                <div class="col-md-2">
-                  <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                <div class="col-md-12">
+                  <p class="text-inverse text-left m-b-0">Vous êtes déjà inscrit? <a routerLink="/authentication/login">Se connecter</a></p>
                 </div>
               </div>
             </div>
