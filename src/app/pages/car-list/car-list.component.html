@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Vos voiture'">
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Immatriculation</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Déposer la voiture</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.immatriculation}}</td>
+                    <td>{{car.brand}}</td>
+                    <td>{{car.model}}</td>
+                    <td class="align-middle">
+                        <button type="button" 
+                                class="btn btn-primary"
+                                (click)="deposit(car)">Déposer</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+      </app-card>
+    </div>
+  </div>
