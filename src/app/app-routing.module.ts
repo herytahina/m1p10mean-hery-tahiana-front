@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
+import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
+import { CarListComponent } from './pages/car-list/car-list.component';
 
 const routes: Routes = [
   {
@@ -15,7 +17,15 @@ const routes: Routes = [
       }, {
         path: 'simple-page',
         loadChildren: () => import('./pages/simple-page/simple-page.module').then(m => m.SimplePageModule)
-      }
+      }, 
+      {
+        path: 'car-deposit',
+        component: CarDepositComponent
+      },
+      {
+        path: 'car-list',
+        component: CarListComponent
+      },
     ]
   },
   {

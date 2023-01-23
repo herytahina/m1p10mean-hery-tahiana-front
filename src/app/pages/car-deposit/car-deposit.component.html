@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Dépot de voiture'">
+        <form   class="row g-3"
+                (ngSubmit)="onSubmit(deposit)" #deposit="ngForm">
+            <div class="col-md-12 mb-3">
+              <label for="immatriculation" class="form-label">Numero d'immatriculation</label>
+              <input    type="text" 
+                        class="form-control" 
+                        id="immatriculation"
+                        name="immatriculation"
+                        ngModel required >
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="brand" class="form-label">Marque</label>
+              <input    type="text" 
+                        class="form-control" 
+                        id="brand"
+                        name="brand"
+                        ngModel required >
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="model" class="form-label">Modèle</label>
+              <input    type="text" 
+                        class="form-control" 
+                        id="model"
+                        name="model"
+                        ngModel required >
+            </div>
+            <div *ngIf="error !== ''" class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            </div>
+            <div class="col-12">
+              <button *ngIf="loading" type="submit" class="btn btn-primary" disabled>Veuillez patienter ...</button>
+              <button *ngIf="!loading" type="submit" class="btn btn-primary">Déposer</button>
+            </div>
+        </form>
+      </app-card>
+    </div>
+  </div>
+  

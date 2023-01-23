@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
+import { CarListComponent } from './pages/car-list/car-list.component';
+import { CarService } from './services/car.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     AdminComponent,
     BreadcrumbsComponent,
     TitleComponent,
-    AuthComponent
+    AuthComponent,
+    CarDepositComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    AuthService
+    AuthService,
+    CarService,
   ],
   bootstrap: [AppComponent]
 })

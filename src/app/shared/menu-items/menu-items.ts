@@ -40,9 +40,23 @@ const MENUITEMS = [
         name: 'Simple Page',
         type: 'link',
         icon: 'ti-layout-sidebar-left'
-      }
+      },
+      {
+        state: 'car-deposit',
+        short_label: 'CD',
+        name: 'Dépot de voiture',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'car-list',
+        short_label: 'CD',
+        name: 'Liste des voitures',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
     ]
-  }
+  },
 ];
 
 @Injectable()
