@@ -12,8 +12,11 @@ export class CarService {
 
     constructor(private httpClient: HttpClient) {}
 
-    fetch(callback?) {
-        this.httpClient.get(`${this.host}/cars?user=63c993465fbe667bc3f7eaf6`).subscribe((data: any[]) => {
+    fetch(search?, callback?) {
+        let path = `${this.host}/cars?user=63c993465fbe667bc3f7eaf6`;
+        if(search)
+            path += `&search=${search}`;
+        this.httpClient.get(path).subscribe((data: any[]) => {
             this.cars = data;
             callback(data)
         })

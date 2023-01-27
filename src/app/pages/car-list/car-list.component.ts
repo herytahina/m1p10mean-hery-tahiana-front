@@ -12,8 +12,12 @@ export class CarListComponent implements OnInit {
 
   constructor(private carService: CarService) { }
 
-  getCars() {
-    this.carService.fetch((data) => {
+  onSearch(search?) {
+    this.getCars(search);
+  }
+
+  getCars(search?) {
+    this.carService.fetch(search, (data) => {
       this.cars = data;
     });
   }
