@@ -66,7 +66,7 @@
               </div>
             </div> -->
             <perfect-scrollbar [style.max-width]="'100%'" [style.max-height]="'calc(100vh - 100px)'" [config]="config">
-              <div *ngFor="let asideItems of menuItems.getAll()" class="d-color">
+              <div *ngFor="let asideItems of menuItems.getAdmin()" class="d-color">
                 <div class="pcoded-navigatio-lavel" [attr.menu-title-theme]="menuTitleTheme">{{asideItems.label}}</div>
                 <ul class="pcoded-item pcoded-left-item" [attr.item-border]="itemBorder" [attr.item-border-style]="itemBorderStyle" [attr.subitem-border]="subItemBorder" *ngFor="let asideItem of asideItems.main" appAccordionLink group="{{asideItem.state}}">
                   <li [routerLinkActive]="['active']" *ngIf="asideItem.type === 'external'" appAccordionLink group="{{asideItem.state}}">
