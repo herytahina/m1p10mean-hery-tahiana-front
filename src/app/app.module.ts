@@ -21,6 +21,12 @@ import { CarService } from './services/car.service';
 import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
 import { CarHistoryComponent } from './pages/car-history/car-history.component';
 
+import {ToastyModule} from 'ng2-toasty';
+import { CommonModule } from '@angular/common';
+import { MechanicComponent } from './layout/mechanic/mechanic.component';
+import { SimplePageComponent } from './pages/simple-page/simple-page.component';
+import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +37,10 @@ import { CarHistoryComponent } from './pages/car-history/car-history.component';
     CarDepositComponent,
     CarListComponent,
     CarRepairsComponent,
-    CarHistoryComponent
+    CarHistoryComponent,
+    MechanicComponent,
+    SimplePageComponent,
+    CarReceptionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,9 @@ import { CarHistoryComponent } from './pages/car-history/car-history.component';
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastyModule.forRoot(),
+    CommonModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
