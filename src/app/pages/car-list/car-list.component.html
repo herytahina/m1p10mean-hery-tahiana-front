@@ -1,15 +1,20 @@
 <div class="row">
     <div class="col-sm-12">
       <app-card [title]="'Vos voiture'">
-        <div class="row col-8 mb-3">
+        <div class="row col-12 mb-3">
           <label for="searchbar" class="col col-form-label">Recherche</label>
           <div class="col">
             <input (change)="onSearch(search.value)" type="text" class="form-control" id="searchbar" #search="ngModel" ngModel>
           </div>
           <div class="col">
             <button type="button" 
-              class="btn btn-primary"
+              class="btn btn-dark"
               (click)="onSearch(search.value)">Rechercher</button>
+          </div>
+          <div class="col align-items-end">
+            <button type="button" 
+              class="btn btn-success"
+              (click)="depositNew()"><i class="icofont icofont-plus"></i>Déposer nouvelle voiture</button>
           </div>
         </div>
         <table class="table">
@@ -18,7 +23,9 @@
                 <th>Immatriculation</th>
                 <th>Marque</th>
                 <th>Modèle</th>
+                <th>Réparations de la voiture</th>
                 <th>Déposer la voiture</th>
+                <th>Historique de réparation</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +36,17 @@
                     <td class="align-middle">
                         <button type="button" 
                                 class="btn btn-primary"
+                                (click)="repair(car.immatriculation)">Réparations</button>
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" 
+                                class="btn btn-primary"
                                 (click)="deposit(car)">Déposer</button>
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" 
+                                class="btn btn-primary"
+                                (click)="history(car.immatriculation)">Historique</button>
                     </td>
                 </tr>
             </tbody>

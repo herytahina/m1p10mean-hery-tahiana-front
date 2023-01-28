@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarService } from '../../services/car.service';
 
 @Component({
@@ -10,7 +11,11 @@ export class CarListComponent implements OnInit {
 
   cars = [];
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private router: Router) { }
+
+  repair(id) {
+    this.router.navigate([`/car-repairs/${id}`]);
+  }
 
   onSearch(search?) {
     this.getCars(search);
@@ -23,7 +28,15 @@ export class CarListComponent implements OnInit {
   }
 
   deposit(car) {
-    this.carService.deposit(car, (data)=> {})
+    this.carService.deposit(car, (data)=> {});
+  }
+
+  depositNew() {
+    this.router.navigate(['/car-deposit']);
+  }
+  
+  history(id) {
+    this.router.navigate([`/car-history/${id}`]);
   }
 
   ngOnInit() {
