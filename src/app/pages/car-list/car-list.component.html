@@ -2,14 +2,11 @@
     <div class="col-sm-12">
       <app-card [title]="'Vos voiture'">
         <div class="row col-12 mb-3">
-          <label for="searchbar" class="col col-form-label">Recherche</label>
-          <div class="col">
-            <input (change)="onSearch(search.value)" type="text" class="form-control" id="searchbar" #search="ngModel" ngModel>
+          <div class="col-2">
+            <label for="searchbar" class="col col-form-label">Recherche</label>
           </div>
           <div class="col">
-            <button type="button" 
-              class="btn btn-dark"
-              (click)="onSearch(search.value)">Rechercher</button>
+            <input (keyup)="onSearch(search.value)" type="text" class="form-control" id="searchbar" #search="ngModel" ngModel>
           </div>
           <div class="col align-items-end">
             <button type="button" 
@@ -23,8 +20,8 @@
                 <th>Immatriculation</th>
                 <th>Marque</th>
                 <th>Modèle</th>
-                <th>Réparations de la voiture</th>
                 <th>Déposer la voiture</th>
+                <th>Réparations de la voiture</th>
                 <th>Historique de réparation</th>
                 </tr>
             </thead>
@@ -34,14 +31,20 @@
                     <td>{{car.brand}}</td>
                     <td>{{car.model}}</td>
                     <td class="align-middle">
-                        <button type="button" 
-                                class="btn btn-primary"
-                                (click)="repair(car.immatriculation)">Réparations</button>
+                      <button *ngIf="!car.status.parked" type="button" 
+                              class="btn btn-primary"
+                              (click)="deposit(car)">Déposer</button>
+                      <button *ngIf="car.status.parked && !car.status.requested" type="button" 
+                              class="btn btn-primary"
+                              (click)="exitRequest(car.immatriculation)">Récuperer</button>
+                      <button *ngIf="car.status.parked && car.status.requested" type="button" 
+                              class="btn btn-disabled" disabled>En cours de validation</button>
                     </td>
                     <td class="align-middle">
                         <button type="button" 
                                 class="btn btn-primary"
-                                (click)="deposit(car)">Déposer</button>
+                                (click)="repair(car.immatriculation)"
+                                [disaled]="!car.status.parked">Réparations</button>
                     </td>
                     <td class="align-middle">
                         <button type="button" 
@@ -51,6 +54,8 @@
                 </tr>
             </tbody>
           </table>
+          <!-- <button class="btn btn-success waves-effect" (click)="addToast({title:'Default Toasty', msg:'Turning standard Bootstrap alerts into awesome notifications', timeout: 5000, theme:'default', position:'bottom-right', type:'success'})">Success</button> -->
       </app-card>
     </div>
   </div>
+  <!-- <ng2-toasty position="top-center"></ng2-toasty> -->

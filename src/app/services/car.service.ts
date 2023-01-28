@@ -45,4 +45,12 @@ export class CarService {
             callback(err.error);
         }
     }
+
+    exitRequest(id, callback) {
+        this.httpClient.put(`${this.host}/cars/${id}/recover`, {}).subscribe((data) => {
+            callback(data);
+        }), (err) => {
+            callback(err.error);
+        }
+    }
 }
