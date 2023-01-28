@@ -29,4 +29,20 @@ export class CarService {
             callback(err.error);
         })
     }
+
+    repairs(id, callback) {
+        this.httpClient.get(`${this.host}/cars/${id}/repairs`).subscribe((data) => {
+            callback(data);
+        }), (err) => {
+            callback(err.error);
+        }
+    }
+
+    history(id, callback) {
+        this.httpClient.get(`${this.host}/cars/${id}/repairs/history`).subscribe((data) => {
+            callback(data);
+        }), (err) => {
+            callback(err.error);
+        }
+    }
 }

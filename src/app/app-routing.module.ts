@@ -4,6 +4,8 @@ import {AdminComponent} from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
 import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
+import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
+import { CarHistoryComponent } from './pages/car-history/car-history.component';
 
 const routes: Routes = [
   {
@@ -23,8 +25,16 @@ const routes: Routes = [
         component: CarDepositComponent
       },
       {
-        path: 'car-list',
+        path: 'car',
         component: CarListComponent
+      },
+      {
+        path: 'car-repairs/:id',
+        component: CarRepairsComponent
+      },
+      {
+        path: 'car-history/:id',
+        component: CarHistoryComponent
       },
     ]
   },

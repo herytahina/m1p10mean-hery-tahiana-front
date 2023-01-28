@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
 import { CarService } from './services/car.service';
+import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
+import { CarHistoryComponent } from './pages/car-history/car-history.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CarService } from './services/car.service';
     TitleComponent,
     AuthComponent,
     CarDepositComponent,
-    CarListComponent
+    CarListComponent,
+    CarRepairsComponent,
+    CarHistoryComponent
   ],
   imports: [
     BrowserModule,
