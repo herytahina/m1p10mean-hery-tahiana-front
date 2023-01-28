@@ -35,20 +35,6 @@ const MENUITEMS = [
     label: 'Navigation',
     main: [
       {
-        state: 'simple-page',
-        short_label: 'S',
-        name: 'Simple Page',
-        type: 'link',
-        icon: 'ti-layout-sidebar-left'
-      },
-      {
-        state: "car-deposit",
-        short_label: 'CD',
-        name: 'Dépot de voiture',
-        type: 'link',
-        icon: 'ti-layout-sidebar-left'
-      },
-      {
         state: 'car',
         short_label: 'C',
         name: 'Liste des voitures',
@@ -59,10 +45,29 @@ const MENUITEMS = [
   },
 ];
 
+const MECHANICITEMS = [
+  {
+    label: 'Navigation',
+    main: [
+      {
+        state: 'mechanic/reception',
+        short_label: 'RC',
+        name: 'Réceptionner une voiture',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+    ]
+  },
+];
+
 @Injectable()
 export class MenuItems {
-  getAll(): Menu[] {
+  getAdmin(): Menu[] {
     return MENUITEMS;
+  }
+
+  getMechanic(): Menu[] {
+    return MECHANICITEMS;
   }
 
   /*add(menu: Menu) {
