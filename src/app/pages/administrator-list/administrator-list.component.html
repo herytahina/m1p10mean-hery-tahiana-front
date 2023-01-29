@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Liste des administrateurs'">
+        <!-- <div class="row col-12 mb-3"> -->
+          <!-- <label for="searchbar" class="col col-form-label">Recherche</label>
+          <div class="col">
+            <input (change)="onSearch(search.value)" type="text" class="form-control" id="searchbar" #search="ngModel" ngModel>
+          </div> -->
+          <!-- <div class="col">
+            <button type="button" 
+              class="btn btn-dark"
+              (click)="onSearch(search.value)">Rechercher</button>
+          </div> -->
+          <!-- <div class="col align-items-end "> -->
+            <button type="button" 
+              class="btn btn-success float-right mb-3"
+              (click)="newAdministrator()"><i class="icofont icofont-plus"></i>Nouvel administrateur</button>
+          <!-- </div> -->
+        <!-- </div> -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom(s)</th>
+                    <th>Adresse email</th>
+                    <th>Contact</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let admin of administrators">
+                    <td>{{admin.lastName}}</td>
+                    <td>{{admin.firstName}}</td>
+                    <td>{{admin.email}}</td>
+                    <td>{{admin.contact}}</td>
+                    <td class="text-right">
+                        <button class="btn btn-secondary mr-1">Modifier</button>
+                        <button class="btn btn-danger" (click)="deleteAdministrator(admin._id)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+      </app-card>
+    </div>
+  </div>
