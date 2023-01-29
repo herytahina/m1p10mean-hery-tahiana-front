@@ -1,1 +1,28 @@
-<p>car-reception works!</p>
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Réceptionner une voiture'">
+        <form   class="row g-3"
+                (ngSubmit)="onSubmit(receive)" #receive="ngForm">
+            <div *ngIf="cars.length > 0" class="col-md-12 mb-3">
+              <label for="immatriculation" class="form-label">Voiture à récéptionner</label>
+              <select class="form-control" name="car" ngModel>
+                <option *ngFor="let car of cars" [value]="car.immatriculation">{{car.immatriculation+" - "+car.brand+" "+car.model}}</option>
+              </select>
+            </div>
+            <div *ngIf="cars.length === 0" class="col-md-12 mb-3">
+                <p>Aucune voiture à récéptionner.</p>
+              </div>
+            <div *ngIf="error !== ''" class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            </div>
+            <div *ngIf="cars.length > 0" class="col-12">
+              <button *ngIf="loading" type="submit" class="btn btn-primary" disabled>Veuillez patienter ...</button>
+              <button *ngIf="!loading" type="submit" class="btn btn-primary">Réceptionner</button>
+            </div>
+        </form>
+      </app-card>
+    </div>
+  </div>
+  

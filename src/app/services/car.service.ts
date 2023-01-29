@@ -53,4 +53,21 @@ export class CarService {
             callback(err.error);
         }
     }
+
+    fetchNonReceived(callback) {
+        this.httpClient.get(`${this.host}/cars/nonReceived`).subscribe((data: any[]) => {
+            this.cars = data;
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
+
+    receiveCar(mechanic, immatriculation, callback) {
+        this.httpClient.put(`${this.host}/cars/${immatriculation}/reception?mechanic=${mechanic}`, {}).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
 }
