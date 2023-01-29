@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-basic-login',
@@ -6,11 +9,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basic-login.component.scss']
 })
 export class BasicLoginComponent implements OnInit {
+  incorrectData = false;
+  emailError = false;
+  passwordError = false;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     document.querySelector('body').setAttribute('themebg-pattern', 'theme1');
   }
+  
+  submitForm(form: NgForm) {
+    this.authService.login(form.value.email, form.value.password, (res) => {
+      if(res.message)
+        this.incorrectData = true;
+      else
+        // console.log('Alefaso amzay fa efa poinsa');
+        this.router.navigateByUrl('/');      
+    });
+  }
 
+  checkError(form: NgForm) {
+    if(form.value.email == '') {
+       this.emailError = true;
+    } else this.emailError = false;
+    if(form.value.password == '') {
+      this.passwordError = true;
+    } else this.passwordError = false;
+
+    if(!this.emailError && !this.passwordError) this.submitForm(form);
+  }
 }

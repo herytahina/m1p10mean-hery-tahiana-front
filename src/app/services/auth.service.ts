@@ -18,4 +18,12 @@ export class AuthService {
             callback(err.error);
         })
     }
+
+    login(email: string, password: string, callback) {
+        this.httpClient.post( `${this.host}/users/login`, {email, password}).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err.error);
+        })
+    }
 }
