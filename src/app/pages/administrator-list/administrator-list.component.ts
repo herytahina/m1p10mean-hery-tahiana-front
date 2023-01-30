@@ -26,9 +26,9 @@ export class AdministratorListComponent implements OnInit {
   }
 
   deleteAdministrator(id) {
-    this.administratorService.delete(id);
-    location.reload();
-    // console.log(this.administrators);
+    this.administratorService.delete(id, () => {
+      this.getAdministrators();
+    });
   }
 
   getAdministrators() {
