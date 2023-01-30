@@ -70,4 +70,31 @@ export class CarService {
             callback(err);
         });
     }
+
+    receivedCars(mechanic, callback) {
+        this.httpClient.get(`${this.host}/cars/received?mechanic=${mechanic}`).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
+    
+    addRepairs(immatriculation, repairs, callback) {
+        this.httpClient.post(`${this.host}/cars/${immatriculation}/repairs`, {repairs}).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
+
+    updateRepairProgression(carId, name, progression, callback) {
+        this.httpClient.put(`${this.host}/cars/${carId}/repairs`, {
+            name,
+            progression
+        }).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
 }

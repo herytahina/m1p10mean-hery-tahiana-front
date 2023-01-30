@@ -50,8 +50,15 @@ const MECHANICITEMS = [
     label: 'Navigation',
     main: [
       {
-        state: 'mechanic/reception',
+        state: 'received-cars',
         short_label: 'RC',
+        name: 'Liste des voitures',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'reception',
+        short_label: 'R',
         name: 'Réceptionner une voiture',
         type: 'link',
         icon: 'ti-layout-sidebar-left'

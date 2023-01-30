@@ -26,6 +26,8 @@ import { CommonModule } from '@angular/common';
 import { MechanicComponent } from './layout/mechanic/mechanic.component';
 import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
+import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
+import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CarReceptionComponent } from './pages/car-reception/car-reception.compo
     CarHistoryComponent,
     MechanicComponent,
     SimplePageComponent,
-    CarReceptionComponent
+    CarReceptionComponent,
+    ReceivedCarsComponent,
+    ReceivedCarsDetailsComponent
   ],
   imports: [
     BrowserModule,

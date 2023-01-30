@@ -9,6 +9,8 @@ import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { MechanicComponent } from './layout/mechanic/mechanic.component';
 import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
+import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
+import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
 
 const routes: Routes = [
   {
@@ -49,7 +51,15 @@ const routes: Routes = [
       {
         path: 'reception',
         component: CarReceptionComponent
-      }
+      },
+      {
+        path: 'received-cars',
+        component: ReceivedCarsComponent
+      },
+      {
+        path: 'received-cars-details/:id',
+        component: ReceivedCarsDetailsComponent
+      },
     ]
   },
   {
