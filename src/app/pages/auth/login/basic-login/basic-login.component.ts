@@ -23,12 +23,10 @@ export class BasicLoginComponent implements OnInit {
     this.authService.login(form.value.email, form.value.password, (res) => {
       if(res.message)
         this.incorrectData = true;
-      else
+      else {
         sessionStorage.setItem('user', JSON.stringify(res));
-        // const user = JSON.parse(sessionStorage.getItem("userDetails"));
-        console.log(JSON.parse(sessionStorage.getItem('user')));
-
-        this.router.navigateByUrl('/'); 
+        this.router.navigateByUrl('/');
+      }
     });
   }
 
