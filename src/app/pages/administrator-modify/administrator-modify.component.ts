@@ -9,7 +9,7 @@ import { AdministratorService } from '../../services/administrator.service';
   styleUrls: ['./administrator-modify.component.scss']
 })
 export class AdministratorModifyComponent implements OnInit {
-  admin = {};
+  admin: any = {};
 
   loading = false;
 

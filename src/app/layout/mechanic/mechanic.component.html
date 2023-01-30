@@ -32,8 +32,8 @@
             <ul [@mobileMenuTop]="isCollapsedMobile" class="nav-right" [ngClass]="isCollapsedMobile">
               <li class="user-profile header-notification">
                 <a [routerLink]="['/']">
-                  <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                  <span>Rakoto Jean</span>
+                  <!-- <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image"> -->
+                  <span>{{user.lastName+' '+user.firstName}}</span>
                   <i class="ti-angle-down"></i>
                 </a>
                 <ul class="show-notification profile-notification">

@@ -58,6 +58,8 @@ import { AuthService } from '../../services/auth.service';
   ]
 })
 export class MechanicComponent implements OnInit {
+  user = JSON.parse(sessionStorage.getItem("user"));
+
   navType: string; /* st1, st2(default), st3, st4 */
   themeLayout: string; /* vertical(default) */
   layoutType: string; /* dark, light */

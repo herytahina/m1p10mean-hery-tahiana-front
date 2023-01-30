@@ -15,11 +15,11 @@
               </div>
               <hr/>
               <div class="input-group">
-                <input type="email" [ngClass]="{'form-control': true, 'is-invalid': emailError}" placeholder="Adresse email" ngModel name="email" required>
+                <input value="randria.nary@gmail.com" type="email" [ngClass]="{'form-control': true, 'is-invalid': emailError}" placeholder="Adresse email" ngModel name="email" required>
                 <span *ngIf="emailError" class="md-line text-danger w-100 text-left">Veuillez entrer votre adresse email</span>
               </div>
               <div class="input-group">
-                <input type="password" [ngClass]="{'form-control': true, 'is-invalid': passwordError}" placeholder="Mot de passe" ngModel name="password" required>
+                <input value="mdpprom13" type="password" [ngClass]="{'form-control': true, 'is-invalid': passwordError}" placeholder="Mot de passe" ngModel name="password" required>
                 <span *ngIf="passwordError" class="md-line text-danger w-100 text-left">Veuillez entrer votre mot de passe</span>
               </div>
               <div *ngIf="incorrectData" class="alert alert-danger" role="alert">

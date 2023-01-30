@@ -49,7 +49,6 @@ import { AuthAuthGuard } from './services/authAuth.guard.service';
     CarRepairsComponent,
     CarHistoryComponent,
     MechanicComponent,
-    SimplePageComponent,
     CarReceptionComponent,
     ReceivedCarsComponent,
     ReceivedCarsDetailsComponent,
