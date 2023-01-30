@@ -11,6 +11,8 @@ import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
 import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
+import { CarRequestedComponent } from './pages/car-requested/car-requested.component';
+import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-requested-details.component';
 
 const routes: Routes = [
   {
@@ -59,6 +61,14 @@ const routes: Routes = [
       {
         path: 'received-cars-details/:id',
         component: ReceivedCarsDetailsComponent
+      },
+      {
+        path: 'requested-cars',
+        component: CarRequestedComponent
+      },
+      {
+        path: 'car-requested-details/:id',
+        component: CarRequestedDetailsComponent
       },
     ]
   },
