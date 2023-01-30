@@ -34,7 +34,7 @@
                     <td>{{admin.email}}</td>
                     <td>{{admin.contact}}</td>
                     <td class="text-right">
-                        <button class="btn btn-secondary mr-1">Modifier</button>
+                        <button class="btn btn-secondary mr-1" (click)="toModify()">Modifier</button>
                         <button class="btn btn-danger" (click)="deleteAdministrator(admin._id)">Supprimer</button>
                     </td>
                 </tr>

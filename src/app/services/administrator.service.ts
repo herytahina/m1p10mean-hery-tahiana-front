@@ -27,11 +27,10 @@ export class AdministratorService {
         }
     }
 
-    delete(id) {
-        this.httpClient.delete(`${this.host}/users/administrator`, id).subscribe((data) => {
-            console.log('deleted');
-        }, (err) => {
-            console.log(err.error);
-        })
+    delete(id, callback?) {
+        this.httpClient.delete(`${this.host}/users/administrator?id=`+id).subscribe(() => {
+            console.log(id + 'deleted');
+            callback();
+        });
     }
 }

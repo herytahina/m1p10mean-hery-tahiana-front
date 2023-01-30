@@ -22,6 +22,7 @@ import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
 import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
 import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
+import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AdministratorAddComponent } from './pages/administrator-add/administrat
     CarRepairsComponent,
     CarHistoryComponent,
     AdministratorListComponent,
-    AdministratorAddComponent
+    AdministratorAddComponent,
+    AdministratorModifyComponent
   ],
   imports: [
     BrowserModule,

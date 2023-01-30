@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-      <app-card [title]="'Nouvel administrateur'">
+      <app-card [title]="'Mise à jour administrateur'">
         <form class="row g-3"
             (ngSubmit)="checkError(add)" #add="ngForm">
             <div class="col-md-6 mb-3">
@@ -32,7 +32,7 @@
                         ngModel >
             </div>
             <div class="col-md-6 mb-3">
-              <label for="password">Mot de passe</label>
+              <label for="password">Nouveau mot de passe</label>
               <input    type="password" 
                         [ngClass]="{'form-control': true, 'is-invalid': passwordError}"
                         name="password"

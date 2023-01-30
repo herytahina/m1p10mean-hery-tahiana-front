@@ -8,6 +8,7 @@ import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
 import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
 import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
+import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'administrator-add',
         component: AdministratorAddComponent
+      },
+      {
+        path: 'administrator-modify',
+        component: AdministratorModifyComponent
       },
     ]
   },

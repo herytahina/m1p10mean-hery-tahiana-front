@@ -17,13 +17,18 @@ export class AdministratorListComponent implements OnInit {
     this.getAdministrators();
   }
 
+  toModify() {
+    this.router.navigate(['/administrator-modify']);
+  }
+
   newAdministrator() {
     this.router.navigate(['/administrator-add']);
   }
 
   deleteAdministrator(id) {
-    // console.log(id);
     this.administratorService.delete(id);
+    location.reload();
+    // console.log(this.administrators);
   }
 
   getAdministrators() {
