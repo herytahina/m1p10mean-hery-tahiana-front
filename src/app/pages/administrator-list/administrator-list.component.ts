@@ -17,8 +17,8 @@ export class AdministratorListComponent implements OnInit {
     this.getAdministrators();
   }
 
-  toModify() {
-    this.router.navigate(['/administrator-modify']);
+  toModify(id) {
+    this.router.navigate(['/administrator-modify/'+id]);
   }
 
   newAdministrator() {

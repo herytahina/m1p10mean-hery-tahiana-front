@@ -24,6 +24,7 @@
                     <th>Prénom(s)</th>
                     <th>Adresse email</th>
                     <th>Contact</th>
+                    <th>Rôle</th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,8 +34,11 @@
                     <td>{{admin.firstName}}</td>
                     <td>{{admin.email}}</td>
                     <td>{{admin.contact}}</td>
+                    <td>
+                      {{admin.type == 2 ? "Responsable atelier" : "Responsable financier"}}
+                    </td>
                     <td class="text-right">
-                        <button class="btn btn-secondary mr-1" (click)="toModify()">Modifier</button>
+                        <button class="btn btn-secondary mr-1" (click)="toModify(admin._id)">Modifier</button>
                         <button class="btn btn-danger" (click)="deleteAdministrator(admin._id)">Supprimer</button>
                     </td>
                 </tr>

@@ -32,6 +32,17 @@
                         ngModel >
             </div>
             <div class="col-md-6 mb-3">
+              <label for="type">Type</label>
+              <select   [(ngModel)]='typeValue'
+                        [ngClass]="{'form-control': true}"
+                        name="type"
+                        ngModel >
+                        <option value="2">Responsable atelier</option>
+                        <option value="3">Responsable financier</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3"></div>
+            <div class="col-md-6 mb-3">
               <label for="password">Mot de passe</label>
               <input    type="password" 
                         [ngClass]="{'form-control': true, 'is-invalid': passwordError}"

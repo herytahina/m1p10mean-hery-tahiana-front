@@ -48,7 +48,7 @@ const routes: Routes = [
         component: AdministratorAddComponent
       },
       {
-        path: 'administrator-modify',
+        path: 'administrator-modify/:id',
         component: AdministratorModifyComponent
       },
     ]

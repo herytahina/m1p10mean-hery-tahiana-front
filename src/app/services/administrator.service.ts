@@ -27,10 +27,24 @@ export class AdministratorService {
         }
     }
 
+    fetchOne(id, callback) {
+        this.httpClient.get(`${this.host}/users/administrator/`+id).subscribe((data: any[]) => {
+            callback(data)
+        }), (err) => {
+            callback(err.error);
+        }
+    }
+
     delete(id, callback?) {
         this.httpClient.delete(`${this.host}/users/administrator?id=`+id).subscribe(() => {
-            console.log(id + 'deleted');
+            // console.log(id + 'deleted');
             callback();
         });
+    }
+
+    update(id, user: any, callback?) {
+        this.httpClient.put(`${this.host}/users/administrator?id=`+id, user).subscribe(() => {
+            callback();
+        })
     }
 }

@@ -2,19 +2,21 @@
     <div class="col-sm-12">
       <app-card [title]="'Mise à jour administrateur'">
         <form class="row g-3"
-            (ngSubmit)="checkError(add)" #add="ngForm">
+            (ngSubmit)="checkError(modify)" #modify="ngForm">
             <div class="col-md-6 mb-3">
                 <label for="lastName">Nom</label>
                 <input    type="text" 
                             [ngClass]="{'form-control': true, 'is-invalid': lastNameError}"
                             name="lastName"
-                            ngModel >
+                            [(ngModel)]="admin.lastName"
+                             >
             </div>
             <div class="col-md-6 mb-3">
                 <label for="firstName">Prénom(s)</label>
                 <input    type="text" 
                             [ngClass]="{'form-control': true, 'is-invalid': firstNameError}"
                             name="firstName"
+                            [(ngModel)]="admin.firstName"
                             ngModel >
             </div>
             <div class="col-md-6 mb-3">
@@ -22,6 +24,7 @@
               <input    type="email" 
                         [ngClass]="{'form-control': true, 'is-invalid': emailError}" 
                         name="email"
+                        [(ngModel)]="admin.email"
                         ngModel >
             </div>
             <div class="col-md-6 mb-3">
@@ -29,23 +32,35 @@
               <input    type="text" 
                         [ngClass]="{'form-control': true, 'is-invalid': contactError}"
                         name="contact"
+                        [(ngModel)]="admin.contact"
                         ngModel >
             </div>
             <div class="col-md-6 mb-3">
-              <label for="password">Nouveau mot de passe</label>
+              <label for="type">Type</label>
+              <select   [(ngModel)]='admin.type'
+                        [ngClass]="{'form-control': true}"
+                        name="type"
+                        ngModel >
+                        <option value="2">Responsable atelier</option>
+                        <option value="3">Responsable financier</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3"></div>
+            <div class="col-md-6 mb-3">
+              <label for="password">Mot de passe</label>
               <input    type="password" 
-                        [ngClass]="{'form-control': true, 'is-invalid': passwordError}"
+                        [ngClass]="{'form-control': true}"
                         name="password"
                         ngModel >
             </div>
-            <div class="col-md-6 mb-3">
+            <!-- <div class="col-md-6 mb-3">
               <label for="confirmPassword">Confirmez le mot de passe</label>
               <input    type="password" 
                         [ngClass]="{'form-control': true, 'is-invalid': confirmPasswordError}"
                         name="confirmPassword"
                         ngModel >
                         <span *ngIf="!passwordMatch" class="md-line text-danger w-100 text-left">Les mots de passes ne sont pas identiques</span>
-            </div>
+            </div> -->
             <!-- <div *ngIf="error !== ''" class="col-md-12">
                 <div class="alert alert-danger" role="alert">
                     {{error}}

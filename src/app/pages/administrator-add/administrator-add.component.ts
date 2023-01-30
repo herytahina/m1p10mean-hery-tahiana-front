@@ -17,6 +17,7 @@ export class AdministratorAddComponent implements OnInit {
   passwordError = false;
   confirmPasswordError = false;
   passwordMatch = true;
+  typeValue = 2;
 
   constructor(private administratorService: AdministratorService, private router: Router) { }
 
