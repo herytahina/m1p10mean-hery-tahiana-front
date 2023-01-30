@@ -1,6 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-mechanic',
@@ -101,7 +103,7 @@ export class MechanicComponent implements OnInit {
 
   public config: any;
 
-  constructor(public menuItems: MenuItems) {
+  constructor(private router: Router, private authService: AuthService, public menuItems: MenuItems) {
     this.navType = 'st5';
     this.themeLayout = 'vertical';
     this.vNavigationView = 'view1';
@@ -161,6 +163,12 @@ export class MechanicComponent implements OnInit {
 
   ngOnInit() {
     this.setBackgroundPattern('pattern2');
+  }
+  
+  logOut() {
+    sessionStorage.removeItem("user");
+    this.authService.loggedIn = false
+    this.router.navigate(['/authentication/login']);
   }
 
   onResize(event) {

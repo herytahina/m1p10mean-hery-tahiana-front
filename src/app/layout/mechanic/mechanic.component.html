@@ -38,7 +38,7 @@
                 </a>
                 <ul class="show-notification profile-notification">
                   <li>
-                    <a [routerLink]="['/authentication/login/with-bg-image']">
+                    <a (click)="logOut()" style="cursor:pointer">
                       <i class="ti-layout-sidebar-left"></i> Déconnexion
                     </a>
                   </li>
