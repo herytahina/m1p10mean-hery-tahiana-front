@@ -62,6 +62,13 @@ const MENUITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
+      {
+        state: 'payment',
+        short_label: 'P',
+        name: 'Paiement',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
     ]
   },
 ];

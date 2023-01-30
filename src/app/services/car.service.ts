@@ -13,6 +13,20 @@ export class CarService {
 
     constructor(private httpClient: HttpClient) {}
 
+    addPayment(car_id, car: any, callback?) {
+        this.httpClient.put(`${this.host}/cars/addPayment/`+car_id, car).subscribe(() => {
+            callback();
+        })
+    }
+    
+    fetchForPayment(callback) {
+        this.httpClient.get(`${this.host}/cars/forPayment`).subscribe((data: any[]) => {
+            callback(data);
+        }), (err) => {
+            callback(err.error);
+        }
+    }
+
     fetch(search?, callback?) {
         let path = `${this.host}/cars?user=`+this.user_id;
         if(search)

@@ -9,6 +9,8 @@ import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
 import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
+import { PaymentCarListComponent } from './pages/payment-car-list/payment-car-list.component';
+import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,14 @@ const routes: Routes = [
       {
         path: 'administrator-modify/:id',
         component: AdministratorModifyComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentCarListComponent
+      },
+      {
+        path: 'payment-new/:car_id',
+        component: PaymentAddComponent
       },
     ]
   },
