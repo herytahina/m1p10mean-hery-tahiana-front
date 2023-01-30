@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Nouvel administrateur'">
+        <form class="row g-3"
+            (ngSubmit)="checkError(add)" #add="ngForm">
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Nom</label>
+                <input    type="text" 
+                            [ngClass]="{'form-control': true, 'is-invalid': lastNameError}"
+                            name="lastName"
+                            ngModel >
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="firstName">Prénom(s)</label>
+                <input    type="text" 
+                            [ngClass]="{'form-control': true, 'is-invalid': firstNameError}"
+                            name="firstName"
+                            ngModel >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="email">Adresse email</label>
+              <input    type="email" 
+                        [ngClass]="{'form-control': true, 'is-invalid': emailError}" 
+                        name="email"
+                        ngModel >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="contact">Contact</label>
+              <input    type="text" 
+                        [ngClass]="{'form-control': true, 'is-invalid': contactError}"
+                        name="contact"
+                        ngModel >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="type">Type</label>
+              <select   [(ngModel)]='typeValue'
+                        [ngClass]="{'form-control': true}"
+                        name="type"
+                        ngModel >
+                        <option value="2">Responsable atelier</option>
+                        <option value="3">Responsable financier</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3"></div>
+            <div class="col-md-6 mb-3">
+              <label for="password">Mot de passe</label>
+              <input    type="password" 
+                        [ngClass]="{'form-control': true, 'is-invalid': passwordError}"
+                        name="password"
+                        ngModel >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="confirmPassword">Confirmez le mot de passe</label>
+              <input    type="password" 
+                        [ngClass]="{'form-control': true, 'is-invalid': confirmPasswordError}"
+                        name="confirmPassword"
+                        ngModel >
+                        <span *ngIf="!passwordMatch" class="md-line text-danger w-100 text-left">Les mots de passes ne sont pas identiques</span>
+            </div>
+            <!-- <div *ngIf="error !== ''" class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            </div> -->
+            <div class="col-12">
+              <button *ngIf="loading" type="submit" class="btn btn-primary" disabled>Veuillez patienter ...</button>
+              <button *ngIf="!loading" type="submit" class="btn btn-primary">Enregistrer</button>
+              <button class="btn btn-secondary ml-1" (click)="backToList()">Retour</button>
+            </div>
+        </form>
+      </app-card>
+    </div>
+  </div>
+  

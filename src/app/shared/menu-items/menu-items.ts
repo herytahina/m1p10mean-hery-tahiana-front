@@ -41,6 +41,13 @@ const MENUITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
+      {
+        state: 'administrator',
+        short_label: 'A',
+        name: 'Administrateurs',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
     ]
   },
 ];

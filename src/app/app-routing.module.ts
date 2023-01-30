@@ -11,6 +11,9 @@ import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
 import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
+import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
+import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
+import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,18 @@ const routes: Routes = [
       {
         path: 'car-history/:id',
         component: CarHistoryComponent
+      },
+      {
+        path: 'administrator',
+        component: AdministratorListComponent
+      },
+      {
+        path: 'administrator-add',
+        component: AdministratorAddComponent
+      },
+      {
+        path: 'administrator-modify/:id',
+        component: AdministratorModifyComponent
       },
     ]
   },

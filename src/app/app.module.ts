@@ -20,6 +20,9 @@ import { CarListComponent } from './pages/car-list/car-list.component';
 import { CarService } from './services/car.service';
 import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
 import { CarHistoryComponent } from './pages/car-history/car-history.component';
+import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
+import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
+import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 
 import {ToastyModule} from 'ng2-toasty';
 import { CommonModule } from '@angular/common';
@@ -44,7 +47,10 @@ import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/rece
     SimplePageComponent,
     CarReceptionComponent,
     ReceivedCarsComponent,
-    ReceivedCarsDetailsComponent
+    ReceivedCarsDetailsComponent,
+    AdministratorListComponent,
+    AdministratorAddComponent,
+    AdministratorModifyComponent
   ],
   imports: [
     BrowserModule,
