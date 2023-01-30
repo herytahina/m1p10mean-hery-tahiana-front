@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Voitures à réparer'">
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Immatriculation</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.immatriculation}}</td>
+                    <td>{{car.brand}}</td>
+                    <td>{{car.model}}</td>
+                    <td class="align-middle">
+                        <button type="button" 
+                                class="btn btn-primary"
+                                (click)="details(car.immatriculation)"><i class="icofont icofont-info-square"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          <!-- <button class="btn btn-success waves-effect" (click)="addToast({title:'Default Toasty', msg:'Turning standard Bootstrap alerts into awesome notifications', timeout: 5000, theme:'default', position:'bottom-right', type:'success'})">Success</button> -->
+      </app-card>
+    </div>
+  </div>
+  <!-- <ng2-toasty position="top-center"></ng2-toasty> -->
