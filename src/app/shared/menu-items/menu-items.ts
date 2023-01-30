@@ -69,6 +69,13 @@ const MENUITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
+      {
+        state: 'expense',
+        short_label: 'D',
+        name: 'Dépense',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
     ]
   },
 ];

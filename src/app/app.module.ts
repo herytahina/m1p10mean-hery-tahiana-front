@@ -25,6 +25,9 @@ import { AdministratorAddComponent } from './pages/administrator-add/administrat
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 import { PaymentCarListComponent } from './pages/payment-car-list/payment-car-list.component';
 import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
+import { ExpenseListComponent } from './pages/expense-list/expense-list.component';
+import { ExpenseAddComponent } from './pages/expense-add/expense-add.component';
+import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
     AdministratorAddComponent,
     AdministratorModifyComponent,
     PaymentCarListComponent,
-    PaymentAddComponent
+    PaymentAddComponent,
+    ExpenseListComponent,
+    ExpenseAddComponent,
+    ExpenseModifyComponent
   ],
   imports: [
     BrowserModule,

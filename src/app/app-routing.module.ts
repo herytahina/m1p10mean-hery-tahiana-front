@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AdminComponent} from './layout/admin/admin.component';
+import { AdminComponent } from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
 import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
@@ -11,6 +11,9 @@ import { AdministratorAddComponent } from './pages/administrator-add/administrat
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 import { PaymentCarListComponent } from './pages/payment-car-list/payment-car-list.component';
 import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
+import { ExpenseListComponent } from './pages/expense-list/expense-list.component';
+import { ExpenseAddComponent } from './pages/expense-add/expense-add.component';
+import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.component';
 
 const routes: Routes = [
   {
@@ -60,6 +63,18 @@ const routes: Routes = [
       {
         path: 'payment-new/:car_id',
         component: PaymentAddComponent
+      },
+      {
+        path: 'expense',
+        component: ExpenseListComponent
+      },
+      {
+        path: 'expense-add',
+        component: ExpenseAddComponent
+      },
+      {
+        path: 'expense-modify/:id',
+        component: ExpenseModifyComponent
       },
     ]
   },
