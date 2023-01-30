@@ -9,11 +9,12 @@ export class CarService {
 
     private host = environment.host;
     cars = [];
+    user_id = JSON.parse(sessionStorage.getItem('user'))._id;
 
     constructor(private httpClient: HttpClient) {}
 
     fetch(search?, callback?) {
-        let path = `${this.host}/cars?user=63d4fce3b17e7dffc315544d`;
+        let path = `${this.host}/cars?user=`+this.user_id;
         if(search)
             path += `&search=${search}`;
         this.httpClient.get(path).subscribe((data: any[]) => {
@@ -23,7 +24,7 @@ export class CarService {
     }
 
     deposit(car: any, callback) {
-        this.httpClient.post( `${this.host}/cars/deposit?user=63d4fce3b17e7dffc315544d`, car).subscribe((data) => {
+        this.httpClient.post( `${this.host}/cars/deposit?user=`+this.user_id, car).subscribe((data) => {
             callback(data);
         }, (err) => {
             callback(err.error);

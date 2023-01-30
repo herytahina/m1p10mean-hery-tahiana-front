@@ -24,12 +24,17 @@ export class BasicLoginComponent implements OnInit {
       if(res.message)
         this.incorrectData = true;
       else
-        // console.log('Alefaso amzay fa efa poinsa');
-        this.router.navigateByUrl('/');      
+        sessionStorage.setItem('user', JSON.stringify(res));
+        // const user = JSON.parse(sessionStorage.getItem("userDetails"));
+        console.log(JSON.parse(sessionStorage.getItem('user')));
+
+        this.router.navigateByUrl('/'); 
     });
   }
 
   checkError(form: NgForm) {
+    // sessionStorage.clear();
+    // console.log(sessionStorage);
     if(form.value.email == '') {
        this.emailError = true;
     } else this.emailError = false;
