@@ -16,6 +16,9 @@ import { AdministratorAddComponent } from './pages/administrator-add/administrat
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
 import { CarRequestedComponent } from './pages/car-requested/car-requested.component';
 import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-requested-details.component';
+import { ClientAuthGuard } from './services/clientAuth.guard.service';
+import { MechanicAuthGuard } from './services/mechanicAuth.guard.service';
+import { AuthAuthGuard } from './services/authAuth.guard.service';
 
 const routes: Routes = [
   {
@@ -25,36 +28,29 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'car',
+        canActivate: [ClientAuthGuard],
         pathMatch: 'full'
       }, 
       {
         path: 'car-deposit',
+        canActivate: [ClientAuthGuard],
         component: CarDepositComponent
       },
       {
         path: 'car',
+        canActivate: [ClientAuthGuard],
         component: CarListComponent
       },
       {
         path: 'car-repairs/:id',
+        canActivate: [ClientAuthGuard],
         component: CarRepairsComponent
       },
       {
         path: 'car-history/:id',
+        canActivate: [ClientAuthGuard],
         component: CarHistoryComponent
-      },
-      {
-        path: 'administrator',
-        component: AdministratorListComponent
-      },
-      {
-        path: 'administrator-add',
-        component: AdministratorAddComponent
-      },
-      {
-        path: 'administrator-modify/:id',
-        component: AdministratorModifyComponent
-      },
+      }
     ]
   },
   {
@@ -63,14 +59,17 @@ const routes: Routes = [
     children: [
       {
         path: 'mechanic',
+        canActivate: [MechanicAuthGuard],
         component: SimplePageComponent
       },
       {
         path: 'reception',
+        canActivate: [MechanicAuthGuard],
         component: CarReceptionComponent
       },
       {
         path: 'received-cars',
+        canActivate: [MechanicAuthGuard],
         component: ReceivedCarsComponent
       },
       {
@@ -79,17 +78,35 @@ const routes: Routes = [
       },
       {
         path: 'requested-cars',
+        canActivate: [MechanicAuthGuard],
         component: CarRequestedComponent
       },
       {
         path: 'car-requested-details/:id',
+        canActivate: [MechanicAuthGuard],
         component: CarRequestedDetailsComponent
+      },
+      {
+        path: 'administrator',
+        canActivate: [MechanicAuthGuard],
+        component: AdministratorListComponent
+      },
+      {
+        path: 'administrator-add',
+        canActivate: [MechanicAuthGuard],
+        component: AdministratorAddComponent
+      },
+      {
+        path: 'administrator-modify/:id',
+        canActivate: [MechanicAuthGuard],
+        component: AdministratorModifyComponent
       },
     ]
   },
   {
     path: '',
     component: AuthComponent,
+    canActivate: [AuthAuthGuard],
     children: [
       {
         path: 'authentication',

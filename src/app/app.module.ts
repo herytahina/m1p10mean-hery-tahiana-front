@@ -33,6 +33,9 @@ import { ReceivedCarsComponent } from './pages/received-cars/received-cars.compo
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
 import { CarRequestedComponent } from './pages/car-requested/car-requested.component';
 import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-requested-details.component';
+import { ClientAuthGuard } from './services/clientAuth.guard.service';
+import { MechanicAuthGuard } from './services/mechanicAuth.guard.service';
+import { AuthAuthGuard } from './services/authAuth.guard.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,9 @@ import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-
   providers: [
     AuthService,
     CarService,
+    ClientAuthGuard,
+    MechanicAuthGuard,
+    AuthAuthGuard,
   ],
   bootstrap: [AppComponent]
 })
