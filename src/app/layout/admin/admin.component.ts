@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -56,6 +57,8 @@ import {MenuItems} from '../../shared/menu-items/menu-items';
   ]
 })
 export class AdminComponent implements OnInit {
+  user = JSON.parse(sessionStorage.getItem("user"));
+
   navType: string; /* st1, st2(default), st3, st4 */
   themeLayout: string; /* vertical(default) */
   layoutType: string; /* dark, light */
@@ -101,7 +104,7 @@ export class AdminComponent implements OnInit {
 
   public config: any;
 
-  constructor(public menuItems: MenuItems) {
+  constructor(private router: Router, public menuItems: MenuItems) {
     this.navType = 'st5';
     this.themeLayout = 'vertical';
     this.vNavigationView = 'view1';
@@ -161,6 +164,11 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.setBackgroundPattern('pattern2');
+  }
+
+  logOut() {
+    sessionStorage.removeItem("user");
+    this.router.navigate(['/authentication/login']);
   }
 
   onResize(event) {
