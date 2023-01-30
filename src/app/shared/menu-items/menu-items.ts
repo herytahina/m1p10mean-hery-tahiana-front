@@ -41,13 +41,6 @@ const MENUITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
-      {
-        state: 'administrator',
-        short_label: 'A',
-        name: 'Administrateurs',
-        type: 'link',
-        icon: 'ti-layout-sidebar-left'
-      },
     ]
   },
 ];
@@ -74,6 +67,13 @@ const MECHANICITEMS = [
         state: 'requested-cars',
         short_label: 'RQC',
         name: 'Demandes de ticket de sortie',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'administrator',
+        short_label: 'A',
+        name: 'Administrateurs',
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },

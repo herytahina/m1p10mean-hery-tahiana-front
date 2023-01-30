@@ -35,7 +35,9 @@ export class CarListComponent implements OnInit {
   }
 
   deposit(car) {
-    this.carService.deposit(car, (data)=> {});
+    this.carService.deposit(car, (data)=> {
+      this.getCars();
+    });
   }
 
   depositNew() {
@@ -47,7 +49,9 @@ export class CarListComponent implements OnInit {
   }
 
   exitRequest(car) {
-    this.carService.exitRequest(car, (data) => {});
+    this.carService.exitRequest(car, (data) => {
+      this.getCars();
+    });
   }
 
   ngOnInit() {
