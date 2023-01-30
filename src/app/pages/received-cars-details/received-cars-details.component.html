@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Réparations de la voiture'">
+        <div *ngIf="!loading">
+            <p>Marque: {{data.brand}}</p>
+            <p>Modèle: {{data.model}}</p>
+            <p>Immatriculation: {{data.immatriculation}}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                <button (click)="show()" class="btn btn-primary me-md-2" type="button">Ajouter réparation</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th>Réparation</th>
+                    <th>Prix</th>
+                    <th>Remarque</th>
+                    <th>Progression</th>
+                    <th>Modifier progression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let repair of data.repairs;let index = index">
+                        <td>{{repair.name}}</td>
+                        <td>{{repair.price}}</td>
+                        <td>{{repair.remark}}</td>
+                        <td>
+                          <div class="progress" role="progressbar" aria-label="Repair progression" [aria-valuenow]="repair.progression" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar" [ngStyle]="{'width': repair.progression+'%'}">{{repair.progression}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <button type="button" 
+                              class="btn btn-primary"
+                              (click)="showUpdate(index)"><i class="icofont icofont-edit"></i>
+                          </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  <app-modal-basic (close)="hideModal()" [visible]="showModal" [visibleAnimate]="showModalAnimate">
+    <div class="app-modal-header">
+        <h5>Ajouter une réparation</h5>
+    </div>
+    <div class="app-modal-body">
+        <form   class="row g-3"
+                (ngSubmit)="onAdd(repair)" #repair="ngForm">
+            <div class="col-md-12 mb-3">
+              <label for="name" class="form-label">Nom</label>
+              <input    type="text" 
+                        class="form-control" 
+                        id="name"
+                        name="name"
+                        ngModel>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="price" class="form-label">Cout (Ar)</label>
+              <input    type="number" 
+                        class="form-control" 
+                        id="price"
+                        name="price"
+                        ngModel>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="remark" class="form-label">Remarque</label>
+              <input    type="text" 
+                        class="form-control" 
+                        id="remark"
+                        name="remark"
+                        ngModel>
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" 
+                class="btn btn-default mr-2"
+                (click)="hideModal()">Annuler</button>
+        <button type="button" 
+                class="btn btn-primary"
+                (click)="onAdd(repair)">Ajouter</button>
+    </div>
+  </app-modal-basic>
+  <app-modal-basic (close)="hideModalUpdate()" [visible]="showModalUpdate" [visibleAnimate]="showModalAnimateUpdate">
+    <div class="app-modal-header">
+        <h5>Mise à jour de progression</h5>
+    </div>
+    <div class="app-modal-body">
+      <p>Ajouter la progression de <b>{{data.repairs[updateRepair].name}}</b></p>
+        <form   class="row g-3"
+                (ngSubmit)="onAdd(progression)" #progression="ngForm">
+            <div class="col-md-12 mb-3">
+              <label for="progressionInput" class="form-label">Progression</label>
+              <div class="input-group">
+                <input [value]="data.repairs[updateRepair].progression" type="number" min="0" max="100" class="form-control" id="progressionInput" aria-describedby="progressionInputAddon" name="progression" #progInp="ngModel" ngModel>
+                <span class="input-group-text" id="progressionInputAddon">%</span>
+              </div>
+            </div>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" 
+                class="btn btn-default mr-2"
+                (click)="hideModalUpdate()">Annuler</button>
+        <button type="button" 
+                class="btn btn-primary"
+                (click)="updateProgression(progression)">Modifier</button>
+    </div>
+  </app-modal-basic>
