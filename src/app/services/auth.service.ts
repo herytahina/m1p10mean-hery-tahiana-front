@@ -8,6 +8,8 @@ import { environment } from "../../environments/environment";
 export class AuthService {
 
     host = environment.host;
+    loggedIn = false;
+    user = null;
 
     constructor(private httpClient: HttpClient) {}
 
@@ -20,7 +22,11 @@ export class AuthService {
     }
 
     login(email: string, password: string, callback) {
-        this.httpClient.post( `${this.host}/users/login`, {email, password}).subscribe((data) => {
+        this.httpClient.post( `${this.host}/users/login`, {email, password}).subscribe((data: any) => {
+            if(!data.message) {
+                this.loggedIn = true;
+                this.user = data;
+            }
             callback(data);
         }, (err) => {
             callback(err.error);
