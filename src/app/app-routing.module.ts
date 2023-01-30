@@ -14,6 +14,8 @@ import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/rece
 import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
 import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
+import { CarRequestedComponent } from './pages/car-requested/car-requested.component';
+import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-requested-details.component';
 
 const routes: Routes = [
   {
@@ -74,6 +76,14 @@ const routes: Routes = [
       {
         path: 'received-cars-details/:id',
         component: ReceivedCarsDetailsComponent
+      },
+      {
+        path: 'requested-cars',
+        component: CarRequestedComponent
+      },
+      {
+        path: 'car-requested-details/:id',
+        component: CarRequestedDetailsComponent
       },
     ]
   },

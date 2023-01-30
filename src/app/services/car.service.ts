@@ -97,4 +97,20 @@ export class CarService {
             callback(err);
         });
     }
+
+    requestedCars(mechanic, callback) {
+        this.httpClient.get(`${this.host}/cars/requested?mechanic=${mechanic}`).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
+
+    validateExit(id, callback) {
+        this.httpClient.put(`${this.host}/cars/${id}/recover/validate`, {}).subscribe((data) => {
+            callback(data);
+        }, (err) => {
+            callback(err);
+        });
+    }
 }

@@ -31,6 +31,8 @@ import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
 import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
+import { CarRequestedComponent } from './pages/car-requested/car-requested.component';
+import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-requested-details.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/rece
     ReceivedCarsDetailsComponent,
     AdministratorListComponent,
     AdministratorAddComponent,
-    AdministratorModifyComponent
+    AdministratorModifyComponent,
+    CarRequestedComponent,
+    CarRequestedDetailsComponent
   ],
   imports: [
     BrowserModule,

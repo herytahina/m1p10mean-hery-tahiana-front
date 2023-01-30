@@ -57,6 +57,13 @@ const MECHANICITEMS = [
     label: 'Navigation',
     main: [
       {
+        state: 'reception',
+        short_label: 'R',
+        name: 'Réceptionner une voiture',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
         state: 'received-cars',
         short_label: 'RC',
         name: 'Liste des voitures',
@@ -64,9 +71,9 @@ const MECHANICITEMS = [
         icon: 'ti-layout-sidebar-left'
       },
       {
-        state: 'reception',
-        short_label: 'R',
-        name: 'Réceptionner une voiture',
+        state: 'requested-cars',
+        short_label: 'RQC',
+        name: 'Demandes de ticket de sortie',
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
