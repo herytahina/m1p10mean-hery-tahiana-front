@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AdminComponent} from './layout/admin/admin.component';
+import { AdminComponent } from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
 import { CarDepositComponent } from './pages/car-deposit/car-deposit.component';
 import { CarListComponent } from './pages/car-list/car-list.component';
@@ -18,6 +18,11 @@ import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-
 import { ClientAuthGuard } from './services/clientAuth.guard.service';
 import { MechanicAuthGuard } from './services/mechanicAuth.guard.service';
 import { AuthAuthGuard } from './services/authAuth.guard.service';
+import { PaymentCarListComponent } from './pages/payment-car-list/payment-car-list.component';
+import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
+import { ExpenseListComponent } from './pages/expense-list/expense-list.component';
+import { ExpenseAddComponent } from './pages/expense-add/expense-add.component';
+import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.component';
 
 const routes: Routes = [
   {
@@ -94,6 +99,26 @@ const routes: Routes = [
         path: 'administrator-modify/:id',
         canActivate: [MechanicAuthGuard],
         component: AdministratorModifyComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentCarListComponent
+      },
+      {
+        path: 'payment-new/:car_id',
+        component: PaymentAddComponent
+      },
+      {
+        path: 'expense',
+        component: ExpenseListComponent
+      },
+      {
+        path: 'expense-add',
+        component: ExpenseAddComponent
+      },
+      {
+        path: 'expense-modify/:id',
+        component: ExpenseModifyComponent
       },
     ]
   },

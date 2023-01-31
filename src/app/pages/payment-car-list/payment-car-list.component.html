@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [title]="'Liste des voitures'">
+        <!-- <div class="row col-12 mb-3">
+          <label for="searchbar" class="col col-form-label">Recherche</label>
+          <div class="col">
+            <input (change)="onSearch(search.value)" type="text" class="form-control" id="searchbar" #search="ngModel" ngModel>
+          </div>
+          <div class="col">
+            <button type="button" 
+              class="btn btn-dark"
+              (click)="onSearch(search.value)">Rechercher</button>
+          </div>
+          <div class="col align-items-end">
+            <button type="button" 
+              class="btn btn-success"
+              (click)="depositNew()"><i class="icofont icofont-plus"></i>Déposer nouvelle voiture</button>
+          </div>
+        </div> -->
+        <table class="table">
+            <thead>
+                <tr>
+                <th>Immatriculation</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.immatriculation}}</td>
+                    <td>{{car.brand}}</td>
+                    <td>{{car.model}}</td>
+                    <td class="text-right">
+                        <button type="button" 
+                                class="btn btn-primary"
+                            (click)="toNewPayment(car._id)">Nouveau paiement</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+      </app-card>
+    </div>
+  </div>

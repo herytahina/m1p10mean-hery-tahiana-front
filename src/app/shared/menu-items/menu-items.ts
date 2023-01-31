@@ -77,6 +77,20 @@ const MECHANICITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
+      {
+        state: 'payment',
+        short_label: 'P',
+        name: 'Paiement',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'expense',
+        short_label: 'D',
+        name: 'Dépense',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
     ]
   },
 ];

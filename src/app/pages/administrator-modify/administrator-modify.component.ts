@@ -42,10 +42,6 @@ export class AdministratorModifyComponent implements OnInit {
     }
   }
 
-  fongany(form: NgForm) {
-    console.log(form.value.lastName);
-  }
-
   submitForm(form: NgForm) {
     this.loading = true;
     if(form.value.password == '') delete form.value.password;

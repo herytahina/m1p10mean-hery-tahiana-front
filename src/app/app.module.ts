@@ -23,6 +23,11 @@ import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { AdministratorListComponent } from './pages/administrator-list/administrator-list.component';
 import { AdministratorAddComponent } from './pages/administrator-add/administrator-add.component';
 import { AdministratorModifyComponent } from './pages/administrator-modify/administrator-modify.component';
+import { PaymentCarListComponent } from './pages/payment-car-list/payment-car-list.component';
+import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
+import { ExpenseListComponent } from './pages/expense-list/expense-list.component';
+import { ExpenseAddComponent } from './pages/expense-add/expense-add.component';
+import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.component';
 
 import {ToastyModule} from 'ng2-toasty';
 import { CommonModule } from '@angular/common';
@@ -56,7 +61,12 @@ import { AuthAuthGuard } from './services/authAuth.guard.service';
     AdministratorAddComponent,
     AdministratorModifyComponent,
     CarRequestedComponent,
-    CarRequestedDetailsComponent
+    CarRequestedDetailsComponent,
+    PaymentCarListComponent,
+    PaymentAddComponent,
+    ExpenseListComponent,
+    ExpenseAddComponent,
+    ExpenseModifyComponent
   ],
   imports: [
     BrowserModule,
