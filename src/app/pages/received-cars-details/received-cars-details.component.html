@@ -84,7 +84,7 @@
                 (click)="onAdd(repair)">Ajouter</button>
     </div>
   </app-modal-basic>
-  <app-modal-basic (close)="hideModalUpdate()" [visible]="showModalUpdate" [visibleAnimate]="showModalAnimateUpdate">
+  <app-modal-basic *ngIf="showModalUpdate" (close)="hideModalUpdate()" [visible]="showModalUpdate" [visibleAnimate]="showModalAnimateUpdate">
     <div class="app-modal-header">
         <h5>Mise à jour de progression</h5>
     </div>

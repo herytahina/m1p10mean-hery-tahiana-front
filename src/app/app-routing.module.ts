@@ -7,7 +7,6 @@ import { CarListComponent } from './pages/car-list/car-list.component';
 import { CarRepairsComponent } from './pages/car-repairs/car-repairs.component';
 import { CarHistoryComponent } from './pages/car-history/car-history.component';
 import { MechanicComponent } from './layout/mechanic/mechanic.component';
-import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
 import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
@@ -57,11 +56,6 @@ const routes: Routes = [
     path: '',
     component: MechanicComponent,
     children: [
-      {
-        path: 'mechanic',
-        canActivate: [MechanicAuthGuard],
-        component: SimplePageComponent
-      },
       {
         path: 'reception',
         canActivate: [MechanicAuthGuard],
