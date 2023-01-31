@@ -11,7 +11,7 @@ import { ExpenseService } from '../../services/expense.service';
 export class ExpenseModifyComponent implements OnInit {
   loading = false;
   
-  expense = {};
+  expense: any = {};
 
   titleError = false;
   amountError = false;

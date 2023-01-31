@@ -9,6 +9,7 @@ import { CarService } from '../../services/car.service';
   styleUrls: ['./payment-add.component.scss']
 })
 export class PaymentAddComponent implements OnInit {
+  loading = false;
   amountError = false;
   paymentDateError = false;
 
@@ -31,7 +32,9 @@ export class PaymentAddComponent implements OnInit {
 
   submitForm(form: NgForm) {
     console.log(this.route.snapshot.params.car_id)
+    this.loading = true;
     this.carService.addPayment(this.route.snapshot.params.car_id, form.value, () => {
+      this.loading = false;
       this.router.navigateByUrl('/payment');
     })
   }
