@@ -21,7 +21,7 @@ export class ClientAuthGuard implements CanActivate {
                 if(this.authService.user.type === 2)
                 this.router.navigateByUrl("/reception");
                 if(this.authService.user.type===3)
-                this.router.navigateByUrl("/");
+                this.router.navigateByUrl("/payment");
             }
         } else {
             this.router.navigateByUrl("/authentication/login");

@@ -32,7 +32,6 @@ import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.co
 import {ToastyModule} from 'ng2-toasty';
 import { CommonModule } from '@angular/common';
 import { MechanicComponent } from './layout/mechanic/mechanic.component';
-import { SimplePageComponent } from './pages/simple-page/simple-page.component';
 import { CarReceptionComponent } from './pages/car-reception/car-reception.component';
 import { ReceivedCarsComponent } from './pages/received-cars/received-cars.component';
 import { ReceivedCarsDetailsComponent } from './pages/received-cars-details/received-cars-details.component';
@@ -41,6 +40,8 @@ import { CarRequestedDetailsComponent } from './pages/car-requested-details/car-
 import { ClientAuthGuard } from './services/clientAuth.guard.service';
 import { MechanicAuthGuard } from './services/mechanicAuth.guard.service';
 import { AuthAuthGuard } from './services/authAuth.guard.service';
+import { FinancesComponent } from './layout/finances/finances.component';
+import { FinancesAuthGuard } from './services/financesAuth.guard.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AuthAuthGuard } from './services/authAuth.guard.service';
     PaymentAddComponent,
     ExpenseListComponent,
     ExpenseAddComponent,
-    ExpenseModifyComponent
+    ExpenseModifyComponent,
+    FinancesComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,7 @@ import { AuthAuthGuard } from './services/authAuth.guard.service';
     ClientAuthGuard,
     MechanicAuthGuard,
     AuthAuthGuard,
+    FinancesAuthGuard,
   ],
   bootstrap: [AppComponent]
 })

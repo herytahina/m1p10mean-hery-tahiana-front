@@ -23,6 +23,8 @@ import { PaymentAddComponent } from './pages/payment-add/payment-add.component';
 import { ExpenseListComponent } from './pages/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './pages/expense-add/expense-add.component';
 import { ExpenseModifyComponent } from './pages/expense-modify/expense-modify.component';
+import { FinancesComponent } from './layout/finances/finances.component';
+import { FinancesAuthGuard } from './services/financesAuth.guard.service';
 
 const routes: Routes = [
   {
@@ -100,24 +102,35 @@ const routes: Routes = [
         canActivate: [MechanicAuthGuard],
         component: AdministratorModifyComponent
       },
+    ]
+  },
+  {
+    path: '',
+    component: FinancesComponent,
+    children: [
       {
         path: 'payment',
+        canActivate: [FinancesAuthGuard],
         component: PaymentCarListComponent
       },
       {
         path: 'payment-new/:car_id',
+        canActivate: [FinancesAuthGuard],
         component: PaymentAddComponent
       },
       {
         path: 'expense',
+        canActivate: [FinancesAuthGuard],
         component: ExpenseListComponent
       },
       {
         path: 'expense-add',
+        canActivate: [FinancesAuthGuard],
         component: ExpenseAddComponent
       },
       {
         path: 'expense-modify/:id',
+        canActivate: [FinancesAuthGuard],
         component: ExpenseModifyComponent
       },
     ]

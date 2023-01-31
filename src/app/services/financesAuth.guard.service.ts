@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
 
 @Injectable()
-export class AuthAuthGuard implements CanActivate {
+export class FinancesAuthGuard implements CanActivate {
 
     constructor(private authService: AuthService, private router: Router) {}
 
@@ -13,14 +13,18 @@ export class AuthAuthGuard implements CanActivate {
         state: RouterStateSnapshot
         ): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         if(this.authService.loggedIn) {
-            if(this.authService.user.type === 1)
-            this.router.navigateByUrl("/car");
-            if(this.authService.user.type === 2)
-            this.router.navigateByUrl("/reception");
-            if(this.authService.user.type===3)
-            this.router.navigateByUrl("/payment");
+            if(this.authService.user.type === 3) {
+                return true;
+            } else {
+                if(this.authService.user.type === 1)
+                this.router.navigateByUrl("/car");
+                if(this.authService.user.type === 2)
+                this.router.navigateByUrl("/reception");
+                if(this.authService.user.type===3)
+                this.router.navigateByUrl("/payment");
+            }
         } else {
-            return true;
+            this.router.navigateByUrl("/authentication/login");
         }
     }
 }

@@ -77,6 +77,14 @@ const MECHANICITEMS = [
         type: 'link',
         icon: 'ti-layout-sidebar-left'
       },
+    ]
+  },
+];
+
+const FINANCESITEMS = [
+  {
+    label: 'Navigation',
+    main: [
       {
         state: 'payment',
         short_label: 'P',
@@ -103,6 +111,10 @@ export class MenuItems {
 
   getMechanic(): Menu[] {
     return MECHANICITEMS;
+  }
+
+  getFinances(): Menu[] {
+    return FINANCESITEMS;
   }
 
   /*add(menu: Menu) {
